@@ -1,0 +1,584 @@
+.auth-bg {
+  min-height: 100vh;
+  background: #F8FAFC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #111827;
+}
+
+.auth-bg::before {
+  content: '';
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle at center, rgba(99,102,241,0.08), transparent 40%);
+  border-radius: 50%;
+  top: -180px;
+  right: -180px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.auth-bg::after {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle at center, rgba(34,211,238,0.06), transparent 40%);
+  border-radius: 50%;
+  bottom: -140px;
+  left: -140px;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+.system-title {
+  color: #111827;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 2px;
+  z-index: 1;
+  animation: fadeInDown 0.8s ease;
+}
+
+.auth-container {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.95));
+  backdrop-filter: blur(6px);
+  padding: 2.2rem 1.8rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 30px rgba(15, 23, 42, 0.1);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(99,102,241,0.12);
+  z-index: 1;
+  animation: fadeInUp 0.7s ease;
+}
+
+.auth-title {
+  color: #111827;
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.user-type-selector {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  font-size: 1.0rem;
+  color: #111827;
+  font-weight: 500;
+  transition: all 0.18s ease;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+}
+
+.radio-label:hover {
+  background: rgba(0,224,255,0.04);
+}
+
+.radio-label input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #22D3EE;
+}
+
+.radio-label span {
+  user-select: none;
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-input {
+  margin-bottom: 1.2rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(99,102,241,0.15);
+  border-radius: 10px;
+  font-size: 1.02rem;
+  transition: all 0.18s ease;
+  background: rgba(255,255,255,0.02);
+  color: #111827;
+}
+
+.auth-input::placeholder { color: #94A3B8; }
+
+.auth-input:focus {
+  outline: none;
+  border-color: #22D3EE;
+  box-shadow: 0 0 0 6px rgba(0,224,255,0.06);
+  transform: translateY(-1px);
+}
+
+.auth-btn {
+  background: linear-gradient(90deg, #22D3EE 0%, #06B6D4 100%);
+  color: #F8FAFC;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem 1.2rem;
+  font-size: 1.02rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 10px 30px rgba(0,224,255,0.08);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+}
+
+.auth-btn:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 45px rgba(0,224,255,0.12);
+}
+
+.auth-btn:active {
+  transform: translateY(-1px);
+}
+
+.auth-link {
+  margin-top: 1rem;
+  font-size: 0.98rem;
+  color: #64748B;
+  text-align: center;
+  z-index: 1;
+}
+
+.auth-link a {
+  color: #22D3EE;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.18s ease;
+}
+
+.auth-link a:hover {
+  color: #06B6D4;
+  text-decoration: underline;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 500px) {
+  .system-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+  }
+  
+  .auth-container {
+    padding: 2rem 1.5rem;
+    max-width: 95vw;
+  }
+
+  .auth-title {
+    font-size: 2rem;
+  }
+
+  .user-type-selector {
+    gap: 1.5rem;
+  }
+
+  .auth-btn {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   ENHANCED STYLES & ANIMATIONS (SignupPage)
+   ============================================ */
+
+/* Logo Icon Pulse */
+.logo-icon {
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+  font-size: 2.8rem;
+  margin-right: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(34,211,238,0.4));
+}
+
+/* Auth Subtitle */
+.auth-subtitle {
+  color: #64748B;
+  font-size: 0.95rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* User Type Selector Enhanced */
+.user-type-selector {
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.selector-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.radio-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid rgba(99,102,241,0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(34,211,238,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.radio-card:hover::before {
+  left: 100%;
+}
+
+.radio-card:hover {
+  border-color: #22D3EE;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34,211,238,0.15);
+}
+
+.radio-card.active {
+  border-color: #22D3EE;
+  background: rgba(34,211,238,0.08);
+  box-shadow: 0 4px 15px rgba(34,211,238,0.2);
+}
+
+.radio-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio-icon {
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.radio-card:hover .radio-icon {
+  transform: scale(1.2);
+}
+
+.radio-card.active .radio-icon {
+  animation: bounce 0.6s ease;
+}
+
+.radio-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  user-select: none;
+}
+
+/* Input Groups */
+.input-group {
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.3px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-wrapper .auth-input {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* Password Toggle Button */
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.password-toggle:hover {
+  background: rgba(34,211,238,0.1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Error States */
+.auth-input.error {
+  border-color: #EF4444;
+  background: rgba(239,68,68,0.05);
+}
+
+.auth-input.error:focus {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 4px rgba(239,68,68,0.1);
+}
+
+.error-message {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #EF4444;
+  font-weight: 500;
+}
+
+/* Message Box */
+.message-box {
+  margin-top: 1rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  border: 1px solid;
+}
+
+.message-box.success {
+  background: rgba(34,197,94,0.1);
+  color: #16A34A;
+  border-color: rgba(34,197,94,0.3);
+}
+
+.message-box.error {
+  background: rgba(239,68,68,0.1);
+  color: #DC2626;
+  border-color: rgba(239,68,68,0.3);
+}
+
+/* Button Enhancements */
+.auth-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.auth-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.auth-btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+.auth-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 10px 30px rgba(0,224,255,0.08);
+}
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.auth-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Link Enhancements */
+.auth-link a {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.3rem;
+}
+
+.auth-link a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #22D3EE;
+  transition: width 0.3s ease;
+}
+
+.auth-link a:hover::after {
+  width: 100%;
+}
+
+.auth-link a:hover {
+  text-decoration: none;
+}
+
+/* Smooth Color Transition */
+.smooth-color {
+  transition: color 0.3s ease;
+}
+
+/* Focus Visible States */
+.auth-input:focus-visible,
+.auth-btn:focus-visible,
+.radio-card:focus-visible,
+.password-toggle:focus-visible {
+  outline: 3px solid #22D3EE;
+  outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 500px) {
+  .radio-group {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .radio-card {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  .input-label {
+    font-size: 0.85rem;
+  }
+
+  .auth-input {
+    font-size: 0.95rem;
+  }
+}
