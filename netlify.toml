@@ -1,7 +1,7 @@
 [build]
   base = "full-stack-app/ems-frontend"
   command = "npm install && npm run build"
-  publish = "full-stack-app/ems-frontend/dist"
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
